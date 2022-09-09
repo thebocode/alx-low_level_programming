@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 /**
- * main - entry point
- * return: always (success)
+ * main - prints if number is positive, zero or negative
+ * return: Always 0 (success)
  */
 
 int main(void)
@@ -22,10 +22,9 @@ int main(void)
 	{
 		printf("%d is zero\n", n);
 	}
-	else 
+	else
 	{
 		printf("%d is negative\n", n);
 	}
-	
 	return (0);
 }
