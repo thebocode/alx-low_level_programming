@@ -5,7 +5,7 @@
  * Return: always (0)
  */
 
-int main(void)
+int _putchar(char)
 {
 	char putchar[8] = {'_', 'p', 'u', 't', 'c', 'h', 'a', 'r'};
 	unsigned int c;
