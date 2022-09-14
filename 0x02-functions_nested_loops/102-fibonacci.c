@@ -16,11 +16,11 @@ int main(void)
 	b = 2;
 
 	printf("%ld, %ld, ", a, b);
-	for (a = 3; a <= 50; a++)
+	for (i = 3; i <= 50; i++)
 	{
 		c = a + b;
 		printf("%ld", c);
-		if (a != 50)
+		if (i != 50)
 		{
 			printf(", ");
 		}
