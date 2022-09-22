@@ -3,7 +3,7 @@
 /**
  * cap_string - function that capitalizes all words of a string
  * @s: input string
- * Return: address of the input string
+ * Return: pointer to the changed string
  */
 
 char *cap_string(char *s)
@@ -30,7 +30,9 @@ char *cap_string(char *s)
 			s[index - 1] == '}' ||
 			index == 0)
 			s[index] -= 32;
+
 		index++;
 	}
+	
 	return (s);
 }
