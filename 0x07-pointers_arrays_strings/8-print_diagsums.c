@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_diagsums -  function that prints the sum of the two diagonals
+ * print_diagsums - prints the sum of the two diagonals
  * @a: input
  * @size: input
  * Return: 0
