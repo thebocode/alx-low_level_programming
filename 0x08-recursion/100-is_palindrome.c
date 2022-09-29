@@ -49,5 +49,5 @@ int pCheck(int i, int lstr, char *s)
 
 int is_palindrome(char *s)
 {
-	return (pCheck(0, lstr(s) - 1, s));
+	return (pCheck(0, len(s) - 1, s));
 }
