@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * print - function to move a string one place to the left and print
+ * _print - function to move a string one place to the left and print
  * @str: string
  * @l: size of string
  * Return: void
@@ -113,48 +113,44 @@ void init(char *str, int l)
 
 int main(int argc, char *argv[])
 {
-	int l1, l2, ln, ti, i;
-	char *a;
-	char *t;
-	char e[] = "Error\n";
+	char *final_prod, *next_prod;
+	int size, index, digit, zeroes = 0;
 
-	if (argc != 3 || check_for_digits(argv))
+	if (argc != 3)
 	{
-		for (ti = 0; e[ti]; ti++)
-			_putchar(e[ti]);
+		printf("Error\n");
 		exit(98);
 	}
 
-	for (l1 = 0; argv[1][l1]; l1++)
-		;
-	for (l2 = 0; argv[2][l2]; l2++)
-		;
-	ln = l1 + l2 + 1;
-	a = malloc(ln * sizeof(char));
-
-	if (a == NULL)
+	if (*(argv[1]) == '0')
+		argv[1] = iterate_zeroes(argv[1]);
+	if (*(argv[2]) == '0')
+		argv[2] = iterate_zeroes(argv[2]);
+	if (*(argv[1]) == '\0' || *(argv[2]) == '\0')
 	{
-		for (ti = 0; e[ti]; ti++)
-			_putchar(e[ti]);
-		exit(98);
+		printf("0\n");
+		return (0);
 	}
 
-	init(a, ln - 1);
+	size = find_len(argv[1]) + find_len(argv[2]);
+	final_prod = create_xarray(size + 1);
+	next_prod = create_xarray(size + 1);
 
-	for (ti = l2 - 1, i = 0; ti >= 0; ti--, i++)
+	for (index = find_len(argv[2]) - 1; index >= 0; index--)
 	{
-		t = mul(argv[2][ti], argv[1], l1 - 1, a, (ln - 2) - i);
-
-		if (t == NULL)
-		{
-			for (ti = 0; e[ti]; ti++)
-			       _putchar(e[ti]);
-
-			free(a);
-			exit(98);
-	       }
+		digit = get_digit(*(argv[2] + index));
+		get_prod(next_prod, argv[1], digit, zeroes++);
+		add_nums(final_prod, next_prod, size - 1);
 	}
+	for (index = 0; final_prod[index]; index++)
+	{
+		if (final_prod[index] != 'x')
+			putchar(final_prod[index]);
+	}
+	putchar('\n');
 
-	_print(a, ln - 1);
+	free(next_prod);
+	free(final_prod);
+
 	return (0);
 }
