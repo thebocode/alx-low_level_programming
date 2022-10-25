@@ -4,7 +4,7 @@
  * delete_nodeint_at_index - deletes the node at index index of a linked list
  * @head: pointer to the head of the listint_t linked list
  * @index: index of the node to be deleted (indices start at 0)
- * Return: 1 if function succeeds, -1 if it failed
+ * Return: 1 if function succeeds, -1 if it fails
  */
 
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
