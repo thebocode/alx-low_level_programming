@@ -33,7 +33,7 @@ listint_t *find_listint_loop(listint_t *head)
 		}
 
 		a = a->next;
-		hare = (hare->next)->next;
+		b = (b->next)->next;
 
 	}
 
